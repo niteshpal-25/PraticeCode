@@ -1,6 +1,17 @@
 function second_largest(arr) {
-  let maxvalue = arr[0];
-  for (let i = 0; i < arr.length - 1; i++) {}
+  let max = -Infinity;
+  let secondMax = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      secondMax = max;
+      max = arr[i];
+    } else if (arr[i] > secondMax && arr[i] !== max) {
+      secondMax = arr[i];
+    }
+  }
+
+  return secondMax;
 }
 
-second_largest([4, 45, 8, 60, 80]);
+console.log(second_largest([4, 45, 8, 60, 80])); // 60
